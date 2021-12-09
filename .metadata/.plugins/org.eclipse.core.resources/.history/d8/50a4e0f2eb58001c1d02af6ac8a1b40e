@@ -1,0 +1,64 @@
+/    try {
+//    	Connection myConn= DriverManager.getConnection("jdbc:mysql://localhost:3306/401","root","newpassword");
+//    	Statement myStat=myConn.createStatement();
+//    	ResultSet myRs= myStat.executeQuery("select * from user");
+//    	while (myRs.next()) {
+//    		System.out.println(myRs.getString("name")+" "+(myRs.getString("lastName")+"/"+(myRs.getString("phoneNumber"))));
+//    	}
+//    }catch(Exception exc) {
+//    	exc.printStackTrace();
+//
+//} 
+//    }
+//}
+//	
+//	      
+	
+	JTextField tf1,tf2,tf3;  
+    JButton b1,b2,b3,b4;  
+    JTextField t1,t2,t3;
+ 
+    	 JFrame f= new JFrame("401");  
+    	 JLabel l1,l2,l3;
+    	 JTextField t1,t2,t3; 
+    	    JButton b1,b2,b3,b4;
+    	    //Buttons
+    	    b1= new JButton("ADD");
+    	    b1.setBounds(50,200,100,40);
+    	    b2= new JButton("Upgrade");
+    	    b2.setBounds(150,200,100,40);
+    	    b3= new JButton("Delete");
+    	    b3.setBounds(250,200,100,40);
+    	    b4= new JButton("Get list ");
+    	    b4.setBounds(150,240,100,40);
+    	    //labels
+    	    l3=new JLabel("Id:");  
+    	    l3.setBounds(50,25, 100,30);  
+    	    l1=new JLabel("Name:");  
+    	    l1.setBounds(50,75, 100,30);  
+    	    l2=new JLabel("Last Name:");  
+    	    l2.setBounds(50,125, 100,30);
+    	    //textfields
+    	    t3=new JTextField();  
+    	    t3.setBounds(50,50, 200,30);    
+    	    t1=new JTextField();  
+    	    t1.setBounds(50,100, 200,30);  
+    	    t2=new JTextField();  
+    	    t2.setBounds(50,150, 200,30); 
+    	    
+    	    //Action listener
+    	    
+    	    b4.addActionListener(this);
+    	    //add to Jframe
+    	    f.add(l1);
+    	    f.add(l2);
+    	    f.add(l3);
+    	    f.add(b1);
+    	    f.add(b2);
+    	    f.add(b3);
+    	    f.add(b4);
+    	    f.add(t1); f.add(t2);  f.add(t3);
+    	    f.setSize(400,500);  
+    	    f.setLayout(null);  
+    	    f.setVisible(true);  
+    	    

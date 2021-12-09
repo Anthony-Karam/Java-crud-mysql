@@ -1,0 +1,45 @@
+package jdbcdemo;
+import java.sql.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Driver {
+
+	JFrame f = new JFrame("The Twilight Zone");
+	   //set size and location of frame
+	   f.setSize(390 , 300);
+	   f.setLocation(100, 150);
+	   //make sure it quits when x is clicked
+	   f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	   //set look and feel
+	   f.setDefaultLookAndFeelDecorated(true);
+	   JLabel labelM = new JLabel("Not Only of Sight, but of: ");
+	   labelM.setBounds(50, 50, 200, 30);
+	   JTextField motto1 = new JTextField();
+	   //set size of the text box
+	   motto1.setBounds(50, 100, 200, 30);
+	   //add elements to the frame
+	   f.add(labelM);
+	   f.add(motto1);
+	   f.setLayout(null);
+	   f.setVisible(true);
+
+	public static void main(String[] args) {
+		new Driver();
+		// TODO Auto-generated method stub
+try {
+	Connection myConn= DriverManager.getConnection("jdbc:mysql://localhost:3306/401","root","newpassword");
+	Statement myStat=myConn.createStatement();
+	ResultSet myRs= myStat.executeQuery("select * from user");
+	while (myRs.next()) {
+		System.out.println(myRs.getString("name")+" "+(myRs.getString("lastName")+"/"+(myRs.getString("phoneNumber"))));
+	}
+}catch(Exception exc) {
+	exc.printStackTrace();
+}
+	}
+
+}

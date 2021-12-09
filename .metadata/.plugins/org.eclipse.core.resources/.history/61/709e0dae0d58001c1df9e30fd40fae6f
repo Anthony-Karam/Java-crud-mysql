@@ -1,0 +1,26 @@
+package jdbcdemo;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class my_update{
+	
+	void  my_db_update(String str1, String str4) {
+			try{  
+		Class.forName("com.mysql.jdbc.Driver");  
+		Connection con=DriverManager.getConnection(  
+		"jdbc:mysql://localhost:3306/401","root","newpassword");  
+		Statement st=con.createStatement();  
+		
+		String query1="INSERT INTO `401`.`user`"
+		 + " (`name`, `lastName`)"
+		 + "VALUES('" +str1+"','"+"',"+",'"+str4+"')";
+		st.executeUpdate(query1); // record added. 
+		
+		con.close();  
+		
+		}catch(Exception e){ System.out.println(e);} 
+		//////////////////////////////
+	}
+	}

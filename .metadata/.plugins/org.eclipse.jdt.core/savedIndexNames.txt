@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+/home/anthony/Desktop/401Project/.metadata/.plugins/org.eclipse.jdt.core
+2230985405.index
+3870210358.index
+3912969769.index
+646308851.index

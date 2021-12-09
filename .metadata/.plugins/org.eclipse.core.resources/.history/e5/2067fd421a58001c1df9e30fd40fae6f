@@ -1,0 +1,43 @@
+package jdbcdemo;
+import java.sql.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.FlowLayout;  
+import javax.swing.JButton;  
+import javax.swing.JPanel;  
+public class Driver implements ActionListener {
+
+	 
+
+	public static void main(String[] args)  {
+		 JFrame frame = new JFrame("401");  
+	      JPanel panel = new JPanel();  
+	      panel.setLayout(new FlowLayout());  
+	      JLabel label = new JLabel("Name");
+//	      JText
+	      JButton button = new JButton();  
+	      button.setText("Button");  
+	      panel.add(label);  
+	      panel.add(button);  
+	      frame.add(panel);  
+	      frame.setSize(600, 400);  
+	      frame.setLocationRelativeTo(null);  
+	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+	      frame.setVisible(true);  
+		// TODO Auto-generated method stub
+try {
+	Connection myConn= DriverManager.getConnection("jdbc:mysql://localhost:3306/401","root","newpassword");
+	Statement myStat=myConn.createStatement();
+	ResultSet myRs= myStat.executeQuery("select * from user");
+	while (myRs.next()) {
+		System.out.println(myRs.getString("name")+" "+(myRs.getString("lastName")+"/"+(myRs.getString("phoneNumber"))));
+	}
+}catch(Exception exc) {
+	exc.printStackTrace();
+}
+	}
+
+}
